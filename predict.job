@@ -1,0 +1,12 @@
+#!/bin/bash
+#SBATCH --job-name=predict
+#SBATCH --output=%x-%j.out
+#SBATCH -p GPU-shared
+#SBATCH --nodes=1
+#SBATCH --gpus=v100-16:1
+#SBATCH --time=5:00:00
+
+set -x
+date
+module load AI/tensorflow_22.07-2.8-py3
+python3 run_predict.py
